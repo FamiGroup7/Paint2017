@@ -1,0 +1,10 @@
+c:\Users\tanya\documents\visual studio 2015\Projects\Paint\WindowsForms\bin\Debug\WindowsForms.exe.config
+c:\Users\tanya\documents\visual studio 2015\Projects\Paint\WindowsForms\bin\Debug\WindowsForms.exe
+c:\Users\tanya\documents\visual studio 2015\Projects\Paint\WindowsForms\bin\Debug\WindowsForms.pdb
+c:\Users\tanya\documents\visual studio 2015\Projects\Paint\WindowsForms\obj\Debug\WindowsForms.csprojResolveAssemblyReference.cache
+c:\Users\tanya\documents\visual studio 2015\Projects\Paint\WindowsForms\obj\Debug\WindowsForms.Properties.Resources.resources
+c:\Users\tanya\documents\visual studio 2015\Projects\Paint\WindowsForms\obj\Debug\WindowsForms.csproj.GenerateResource.Cache
+c:\Users\tanya\documents\visual studio 2015\Projects\Paint\WindowsForms\obj\Debug\WindowsForms.exe
+c:\Users\tanya\documents\visual studio 2015\Projects\Paint\WindowsForms\obj\Debug\WindowsForms.pdb
+c:\Users\tanya\documents\visual studio 2015\Projects\Paint\WindowsForms\bin\Debug\Paint.dll
+c:\Users\tanya\documents\visual studio 2015\Projects\Paint\WindowsForms\bin\Debug\Paint.pdb

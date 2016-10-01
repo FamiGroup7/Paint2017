@@ -1,0 +1,4 @@
+c:\Users\tanya\documents\visual studio 2015\Projects\Paint\Paint\bin\Debug\Paint.dll
+c:\Users\tanya\documents\visual studio 2015\Projects\Paint\Paint\bin\Debug\Paint.pdb
+c:\Users\tanya\documents\visual studio 2015\Projects\Paint\Paint\obj\Debug\Paint.dll
+c:\Users\tanya\documents\visual studio 2015\Projects\Paint\Paint\obj\Debug\Paint.pdb
