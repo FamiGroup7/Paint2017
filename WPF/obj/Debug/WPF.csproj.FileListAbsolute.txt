@@ -1,0 +1,16 @@
+c:\Users\tanya\documents\visual studio 2015\Projects\Paint\WPF\bin\Debug\WPF.exe.config
+c:\Users\tanya\documents\visual studio 2015\Projects\Paint\WPF\bin\Debug\WPF.exe
+c:\Users\tanya\documents\visual studio 2015\Projects\Paint\WPF\bin\Debug\WPF.pdb
+c:\Users\tanya\documents\visual studio 2015\Projects\Paint\WPF\bin\Debug\Paint.dll
+c:\Users\tanya\documents\visual studio 2015\Projects\Paint\WPF\bin\Debug\Paint.pdb
+c:\Users\tanya\documents\visual studio 2015\Projects\Paint\WPF\obj\Debug\WPF.csprojResolveAssemblyReference.cache
+c:\Users\tanya\documents\visual studio 2015\Projects\Paint\WPF\obj\Debug\MainWindow.g.cs
+c:\Users\tanya\documents\visual studio 2015\Projects\Paint\WPF\obj\Debug\App.g.cs
+c:\Users\tanya\documents\visual studio 2015\Projects\Paint\WPF\obj\Debug\WPF_MarkupCompile.cache
+c:\Users\tanya\documents\visual studio 2015\Projects\Paint\WPF\obj\Debug\WPF_MarkupCompile.lref
+c:\Users\tanya\documents\visual studio 2015\Projects\Paint\WPF\obj\Debug\MainWindow.baml
+c:\Users\tanya\documents\visual studio 2015\Projects\Paint\WPF\obj\Debug\WPF.g.resources
+c:\Users\tanya\documents\visual studio 2015\Projects\Paint\WPF\obj\Debug\WPF.Properties.Resources.resources
+c:\Users\tanya\documents\visual studio 2015\Projects\Paint\WPF\obj\Debug\WPF.csproj.GenerateResource.Cache
+c:\Users\tanya\documents\visual studio 2015\Projects\Paint\WPF\obj\Debug\WPF.exe
+c:\Users\tanya\documents\visual studio 2015\Projects\Paint\WPF\obj\Debug\WPF.pdb

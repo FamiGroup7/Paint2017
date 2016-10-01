@@ -1,4 +1,4 @@
-﻿namespace WindowsForms
+﻿namespace OpenGL
 {
     partial class Form1
     {
@@ -28,23 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.addLineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pictureBox1 = new OpenTK.GLControl();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 24);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(861, 668);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
             // 
             // panel1
             // 
@@ -72,19 +61,31 @@
             this.addLineToolStripMenuItem.Text = "Add line";
             this.addLineToolStripMenuItem.Click += new System.EventHandler(this.addLineToolStripMenuItem_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Black;
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 24);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(851, 668);
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.VSync = false;
+            this.pictureBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
+            this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1370, 692);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.Resize += new System.EventHandler(this.Form1_Resize);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -93,11 +94,10 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem addLineToolStripMenuItem;
+        private OpenTK.GLControl pictureBox1;
     }
 }
 

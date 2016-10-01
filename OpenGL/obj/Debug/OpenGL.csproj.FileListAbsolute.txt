@@ -1,0 +1,14 @@
+c:\Users\tanya\documents\visual studio 2015\Projects\Paint\OpenGL\bin\Debug\OpenGL.exe.config
+c:\Users\tanya\documents\visual studio 2015\Projects\Paint\OpenGL\bin\Debug\OpenGL.exe
+c:\Users\tanya\documents\visual studio 2015\Projects\Paint\OpenGL\bin\Debug\OpenGL.pdb
+c:\Users\tanya\documents\visual studio 2015\Projects\Paint\OpenGL\bin\Debug\OpenTK.Compatibility.dll
+c:\Users\tanya\documents\visual studio 2015\Projects\Paint\OpenGL\bin\Debug\OpenTK.dll
+c:\Users\tanya\documents\visual studio 2015\Projects\Paint\OpenGL\bin\Debug\OpenTK.GLControl.dll
+c:\Users\tanya\documents\visual studio 2015\Projects\Paint\OpenGL\bin\Debug\Paint.dll
+c:\Users\tanya\documents\visual studio 2015\Projects\Paint\OpenGL\bin\Debug\Paint.pdb
+c:\Users\tanya\documents\visual studio 2015\Projects\Paint\OpenGL\obj\Debug\OpenGL.csprojResolveAssemblyReference.cache
+c:\Users\tanya\documents\visual studio 2015\Projects\Paint\OpenGL\obj\Debug\OpenGL.Properties.Resources.resources
+c:\Users\tanya\documents\visual studio 2015\Projects\Paint\OpenGL\obj\Debug\OpenGL.csproj.GenerateResource.Cache
+c:\Users\tanya\documents\visual studio 2015\Projects\Paint\OpenGL\obj\Debug\OpenGL.exe
+c:\Users\tanya\documents\visual studio 2015\Projects\Paint\OpenGL\obj\Debug\OpenGL.pdb
+C:\Users\tanya\Documents\Visual Studio 2015\Projects\Paint\OpenGL\obj\Debug\OpenGL.Form1.resources

@@ -5,15 +5,17 @@ using System.Drawing.Drawing2D;
 using System.Globalization;
 using System.Windows.Forms;
 using System.Linq;
+using OpenTK.Graphics.OpenGL;
 using Paint;
 
-namespace WindowsForms
+namespace OpenGL
 {
     public partial class Form1 : Form
     {
         Graphics graphics;
         private ChartManager _chartManager;
         public const double ChartMargin = 15;
+        private bool _loaded;
 
         public Form1()
         {
@@ -120,45 +122,55 @@ namespace WindowsForms
 
         private void pictureBox1_Paint(object sender, PaintEventArgs e)
         {
-            graphics = e.Graphics;
-            e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
-            if (_chartManager.ChartDataList.Count != 0)
+            if (_loaded)
             {
-                DrawChart(e.Graphics);
-                DrawAxisX(e.Graphics);
-                DrawAxisY(e.Graphics);
+                e.Graphics.Clear(Color.White);
+                GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
+                GL.MatrixMode(MatrixMode.Modelview);
+                GL.LoadIdentity();
+                if (_chartManager.ChartDataList.Count != 0)
+                {
+                    DrawChart();
+                    DrawAxisX();
+                    DrawAxisY();
+                }
+                pictureBox1.SwapBuffers();
+                if (_chartManager.ChartDataList.Count != 0)
+                {
+                    DrawTextX(e.Graphics);
+                    DrawTextY(e.Graphics);
+                }
             }
         }
 
-        private void DrawChart(Graphics graphics)
+        private void DrawChart()
         {
             foreach (var chartData in _chartManager.ChartDataList)
             {
-                var pen = new Pen(chartData.ChartColor);
                 var points = chartData.Points;
-                var width = panel1.Width;
-                var height = panel1.Height;
+                var width = pictureBox1.Width;
+                var height = pictureBox1.Height;
                 var margin = ChartMargin;
                 var minX = Math.Floor(_chartManager.MinX);
                 var maxX = Math.Ceiling(_chartManager.MaxX);
                 var minY = Math.Floor(_chartManager.MinY);
                 var maxY = Math.Ceiling(_chartManager.MaxY);
-                for (var i = 0; i < points.Count - 1; i++)
+                GL.Color3(chartData.ChartColor);
+                GL.Begin(PrimitiveType.LineStrip);
+                foreach (var point in points)
                 {
-                    var x1 = margin + (points[i].X - minX) / (maxX - minX) * (width - margin);
-                    var y1 = height - margin - (points[i].Y - minY) / (maxY - minY) * (height - margin);
-                    var x2 = margin + (points[i + 1].X - minX) / (maxX - minX) * (width - margin);
-                    var y2 = height - margin - (points[i + 1].Y - minY) / (maxY - minY) * (height - margin);
-                    graphics.DrawLine(pen, (float)x1, (float)y1, (float)x2, (float)y2);
+                    var x = margin + (point.X - minX) / (maxX - minX) * (width - margin);
+                    var y = height - margin - (point.Y - minY) / (maxY - minY) * (height - margin);
+                    GL.Vertex2(x, y);
                 }
+                GL.End();
             }
         }
 
-        private void DrawAxisX(Graphics graphics)
+        private void DrawTextX(Graphics graphics)
         {
-            var pen = new Pen(Color.Black, 1);
-            var width = panel1.Width;
-            var height = panel1.Height;
+            var width = pictureBox1.Width;
+            var height = pictureBox1.Height;
             var margin = ChartMargin;
             var minX = Math.Floor(_chartManager.MinX);
             var maxX = Math.Ceiling(_chartManager.MaxX);
@@ -166,12 +178,10 @@ namespace WindowsForms
             var stepX = (length / 10);
             var count = length / stepX;
             var stepW = (width - margin) / count;
-            graphics.DrawLine(pen, (float)margin, (float)(height - margin), width, (float)(height - margin));
             var x = margin;
             var y = height - margin;
             for (var i = 0; x < width; i++)
             {
-                graphics.DrawLine(pen, (float)x, (float)y, (float)x, (float)(y - 5));
                 var text = Math.Round(minX + stepX * i, 2).ToString(CultureInfo.InvariantCulture);
                 var font = new Font("Arial", 8);
                 var brush = new SolidBrush(Color.Black);
@@ -181,10 +191,37 @@ namespace WindowsForms
             }
         }
 
-        private void DrawAxisY(Graphics graphics)
+        private void DrawAxisX()
         {
-            var pen = new Pen(Color.Black);
-            var height = panel1.Height;
+            var width = pictureBox1.Width;
+            var height = pictureBox1.Height;
+            var margin = ChartMargin;
+            var minX = Math.Floor(_chartManager.MinX);
+            var maxX = Math.Ceiling(_chartManager.MaxX);
+            var length = maxX - minX;
+            var stepX = (length / 10);
+            var count = length / stepX;
+            var stepW = (width - margin) / count;
+            GL.Color3(Color.Black);
+            GL.Begin(PrimitiveType.Lines);
+            GL.Vertex2(margin, height - margin);
+            GL.Vertex2(width, height - margin);
+            GL.End();
+            var x = margin;
+            var y = height - margin;
+            for (var i = 0; x < width; i++)
+            {
+                GL.Begin(PrimitiveType.Lines);
+                GL.Vertex2(x, y);
+                GL.Vertex2(x, y - 5);
+                GL.End();
+                x += stepW;
+            }
+        }
+
+        private void DrawTextY(Graphics graphics)
+        {
+            var height = pictureBox1.Height;
             var margin = ChartMargin;
             var minY = Math.Floor(_chartManager.MinY);
             var maxY = Math.Ceiling(_chartManager.MaxY);
@@ -192,18 +229,42 @@ namespace WindowsForms
             var stepY = (length / 10);
             var count = length / stepY;
             var stepH = (height - margin) / count;
-            graphics.DrawLine(pen, (float)margin, 0, (float)margin, (float)(height - margin));
-            var x = margin;
             var y = height - margin;
             for (var i = 0; y > 0; i++)
             {
-                graphics.DrawLine(pen, (float)x, (float)y, (float)(x + 5), (float)y);
                 var text = Math.Round(minY + stepY * i, 2).ToString(CultureInfo.InvariantCulture);
                 var font = new Font("Arial", 8);
                 var brush = new SolidBrush(Color.Black);
                 var point = new PointF(0, (float)y);
                 var format = new StringFormat { FormatFlags = StringFormatFlags.DirectionVertical };
                 graphics.DrawString(text, font, brush, point, format);
+                y -= stepH;
+            }
+        }
+
+        private void DrawAxisY()
+        {
+            var height = pictureBox1.Height;
+            var margin = ChartMargin;
+            var minY = Math.Floor(_chartManager.MinY);
+            var maxY = Math.Ceiling(_chartManager.MaxY);
+            var length = maxY - minY;
+            var stepY = (length / 10);
+            var count = length / stepY;
+            var stepH = (height - margin) / count;
+            GL.Color3(Color.Black);
+            GL.Begin(PrimitiveType.Lines);
+            GL.Vertex2(margin, 0);
+            GL.Vertex2(margin, height - margin);
+            GL.End();
+            var x = margin;
+            var y = height - margin;
+            for (var i = 0; y > 0; i++)
+            {
+                GL.Begin(PrimitiveType.Lines);
+                GL.Vertex2(x, y);
+                GL.Vertex2(x + 5, y);
+                GL.End();
                 y -= stepH;
             }
         }
@@ -264,9 +325,35 @@ namespace WindowsForms
 
         private void Form1_Resize(object sender, EventArgs e)
         {
+            if (_loaded)
+            {
+                SetupViewport();
+            }
             initWindow();
             pictureBox1.Invalidate();
             SetupPanel();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            _loaded = true;
+            GL.ClearColor(Color.White);
+            SetupViewport();
+        }
+
+        private void SetupViewport()
+        {
+            var w = pictureBox1.Width;
+            var h = pictureBox1.Height;
+            GL.MatrixMode(MatrixMode.Projection);
+            GL.LoadIdentity();
+            GL.Ortho(0, w, h, 0, -1, 1);
+            GL.Viewport(0, 0, w, h);
+        }
+
+        private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
+        {
+
         }
     }
 }

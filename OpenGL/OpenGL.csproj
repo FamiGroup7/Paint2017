@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{54AAAD44-B5BD-49A4-9289-65ABA9669474}</ProjectGuid>
+    <ProjectGuid>{F4C5FC2D-43BC-4E53-8179-BDDB3FCFA3D7}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>WindowsForms</RootNamespace>
-    <AssemblyName>WindowsForms</AssemblyName>
+    <RootNamespace>OpenGL</RootNamespace>
+    <AssemblyName>OpenGL</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -33,6 +33,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="OpenTK">
+      <HintPath>..\..\OpenTK\OpenTK.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenTK.Compatibility">
+      <HintPath>..\..\OpenTK\OpenTK.Compatibility.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenTK.GLControl">
+      <HintPath>..\..\OpenTK\OpenTK.GLControl.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />

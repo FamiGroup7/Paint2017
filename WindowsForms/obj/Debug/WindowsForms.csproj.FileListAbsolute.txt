@@ -8,3 +8,4 @@ c:\Users\tanya\documents\visual studio 2015\Projects\Paint\WindowsForms\obj\Debu
 c:\Users\tanya\documents\visual studio 2015\Projects\Paint\WindowsForms\obj\Debug\WindowsForms.pdb
 c:\Users\tanya\documents\visual studio 2015\Projects\Paint\WindowsForms\bin\Debug\Paint.dll
 c:\Users\tanya\documents\visual studio 2015\Projects\Paint\WindowsForms\bin\Debug\Paint.pdb
+c:\Users\tanya\documents\visual studio 2015\Projects\Paint\WindowsForms\obj\Debug\WindowsForms.Form1.resources
