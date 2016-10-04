@@ -19,7 +19,7 @@ namespace Paint
         public double X { get; set; }
 
         public double Y { get; set; }
-
+        
         public double Distance(ChartPoint point)
         {
             return Math.Sqrt(Math.Pow(X - point.X, 2) + Math.Pow(Y - point.Y, 2));

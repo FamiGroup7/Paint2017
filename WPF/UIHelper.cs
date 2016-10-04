@@ -8,7 +8,7 @@ using System.Windows.Media;
 
 namespace WPF
 {
-    public class UIHelper
+    public static class UIHelper
     {
         public static T FindChild<T>(DependencyObject parent, string childName)
    where T : DependencyObject

@@ -14,3 +14,19 @@ c:\Users\tanya\documents\visual studio 2015\Projects\Paint\WPF\obj\Debug\WPF.Pro
 c:\Users\tanya\documents\visual studio 2015\Projects\Paint\WPF\obj\Debug\WPF.csproj.GenerateResource.Cache
 c:\Users\tanya\documents\visual studio 2015\Projects\Paint\WPF\obj\Debug\WPF.exe
 c:\Users\tanya\documents\visual studio 2015\Projects\Paint\WPF\obj\Debug\WPF.pdb
+C:\Users\atonk\Source\Repos\paint\WPF\bin\Debug\WPF.exe.config
+C:\Users\atonk\Source\Repos\paint\WPF\bin\Debug\WPF.exe
+C:\Users\atonk\Source\Repos\paint\WPF\bin\Debug\WPF.pdb
+C:\Users\atonk\Source\Repos\paint\WPF\bin\Debug\Paint.dll
+C:\Users\atonk\Source\Repos\paint\WPF\bin\Debug\Paint.pdb
+C:\Users\atonk\Source\Repos\paint\WPF\obj\Debug\WPF.csprojResolveAssemblyReference.cache
+C:\Users\atonk\Source\Repos\paint\WPF\obj\Debug\MainWindow.g.cs
+C:\Users\atonk\Source\Repos\paint\WPF\obj\Debug\App.g.cs
+C:\Users\atonk\Source\Repos\paint\WPF\obj\Debug\WPF_MarkupCompile.cache
+C:\Users\atonk\Source\Repos\paint\WPF\obj\Debug\WPF_MarkupCompile.lref
+C:\Users\atonk\Source\Repos\paint\WPF\obj\Debug\MainWindow.baml
+C:\Users\atonk\Source\Repos\paint\WPF\obj\Debug\WPF.g.resources
+C:\Users\atonk\Source\Repos\paint\WPF\obj\Debug\WPF.Properties.Resources.resources
+C:\Users\atonk\Source\Repos\paint\WPF\obj\Debug\WPF.csproj.GenerateResource.Cache
+C:\Users\atonk\Source\Repos\paint\WPF\obj\Debug\WPF.exe
+C:\Users\atonk\Source\Repos\paint\WPF\obj\Debug\WPF.pdb

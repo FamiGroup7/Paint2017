@@ -14,6 +14,8 @@ namespace WindowsForms
         Graphics graphics;
         private ChartManager _chartManager;
         public const double ChartMargin = 15;
+        Color selectedColor = Color.Red;
+        ChartPoint selectedPoint;
 
         public Form1()
         {
@@ -43,6 +45,10 @@ namespace WindowsForms
 
         private void SetupPanel()
         {
+            if (_chartManager == null)
+            {
+                return;
+            }
             panel1.Controls.Clear();
             for (int i = 0, k = 0; i < _chartManager.ChartDataList.Count; i++, k++)
             {
@@ -135,9 +141,10 @@ namespace WindowsForms
             foreach (var chartData in _chartManager.ChartDataList)
             {
                 var pen = new Pen(chartData.ChartColor);
+                var brush = new SolidBrush(chartData.ChartColor);
                 var points = chartData.Points;
-                var width = panel1.Width;
-                var height = panel1.Height;
+                var width = pictureBox1.Width;
+                var height = pictureBox1.Height;
                 var margin = ChartMargin;
                 var minX = Math.Floor(_chartManager.MinX);
                 var maxX = Math.Ceiling(_chartManager.MaxX);
@@ -150,6 +157,15 @@ namespace WindowsForms
                     var x2 = margin + (points[i + 1].X - minX) / (maxX - minX) * (width - margin);
                     var y2 = height - margin - (points[i + 1].Y - minY) / (maxY - minY) * (height - margin);
                     graphics.DrawLine(pen, (float)x1, (float)y1, (float)x2, (float)y2);
+                    graphics.FillRectangle(brush, (float)x1 - 2.5f, (float)y1 - 2.5f, 5, 5);
+                }
+
+                if (selectedPoint != null)
+                {
+                    var brushSelected = new SolidBrush(selectedColor);
+                    var x = margin + (selectedPoint.X - minX) / (maxX - minX) * (width - margin);
+                    var y = height - margin - (selectedPoint.Y - minY) / (maxY - minY) * (height - margin);
+                    graphics.FillRectangle(brushSelected, (float)x-2.5f, (float)y-2.5f, 5, 5);
                 }
             }
         }
@@ -157,8 +173,8 @@ namespace WindowsForms
         private void DrawAxisX(Graphics graphics)
         {
             var pen = new Pen(Color.Black, 1);
-            var width = panel1.Width;
-            var height = panel1.Height;
+            var width = pictureBox1.Width;
+            var height = pictureBox1.Height;
             var margin = ChartMargin;
             var minX = Math.Floor(_chartManager.MinX);
             var maxX = Math.Ceiling(_chartManager.MaxX);
@@ -184,7 +200,7 @@ namespace WindowsForms
         private void DrawAxisY(Graphics graphics)
         {
             var pen = new Pen(Color.Black);
-            var height = panel1.Height;
+            var height = pictureBox1.Height;
             var margin = ChartMargin;
             var minY = Math.Floor(_chartManager.MinY);
             var maxY = Math.Ceiling(_chartManager.MaxY);
@@ -267,6 +283,77 @@ namespace WindowsForms
             initWindow();
             pictureBox1.Invalidate();
             SetupPanel();
+        }
+
+
+        private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (_chartManager == null)
+            {
+                return;
+            }
+            if (_chartManager.ChartDataList.Count != 0)
+            {
+                double x, y;
+                getWindowCoordinates(out x, out y, e);
+                InfoTextBox.Text = "(" + Math.Round(x, 2) + ", " + Math.Round(y, 2) + ")";
+                Invalidate();
+            }
+        }
+
+        private void getWindowCoordinates(out double x, out double y, MouseEventArgs e)
+        {
+            var width = pictureBox1.Width;
+            var height = pictureBox1.Height;
+            var margin = ChartMargin;
+            var minX = Math.Floor(_chartManager.MinX);
+            var maxX = Math.Ceiling(_chartManager.MaxX);
+            var minY = Math.Floor(_chartManager.MinY);
+            var maxY = Math.Ceiling(_chartManager.MaxY);
+            x = (e.X - margin) / (width - margin) * (maxX - minX) + minX;
+            y = (height - margin - e.Y) / (height - margin) * (maxY - minY) + minY;
+        }
+
+        private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
+        {
+            double x, y;
+            getWindowCoordinates(out x, out y, e);
+            selectedPoint = getNearClickPoint(x, y);
+            pictureBox1.Invalidate();
+        }
+
+        private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
+        {
+            double x, y;
+            getWindowCoordinates(out x, out y, e);
+        }
+
+        private ChartPoint getNearClickPoint(double x, double y)
+        {
+            foreach (ChartData chartData in _chartManager.ChartDataList)
+            {
+                foreach (ChartPoint chartPoint in chartData.Points)
+                {
+                    var minY = Math.Floor(_chartManager.MinY);
+                    var maxY = Math.Ceiling(_chartManager.MaxY);
+                    var lengthY = maxY - minY;
+                    var stepY = (lengthY / 10) / 10;
+
+                    var minX = Math.Floor(_chartManager.MinX);
+                    var maxX = Math.Ceiling(_chartManager.MaxX);
+                    var lengthX = maxX - minX;
+                    var stepX = (lengthX / 10) / 10;
+
+                    if (chartPoint.X < x + stepX &&
+                        chartPoint.X > x - stepX &&
+                        chartPoint.Y < y + stepY &&
+                        chartPoint.Y > y - stepY)
+                    {
+                        return chartPoint;
+                    }
+                }
+            }
+            return null;
         }
     }
 }

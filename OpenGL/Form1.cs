@@ -16,6 +16,8 @@ namespace OpenGL
         private ChartManager _chartManager;
         public const double ChartMargin = 15;
         private bool _loaded;
+        Color selectedColor = Color.Red;
+        ChartPoint selectedPoint;
 
         public Form1()
         {
@@ -45,6 +47,10 @@ namespace OpenGL
 
         private void SetupPanel()
         {
+            if (_chartManager == null)
+            {
+                return;
+            }
             panel1.Controls.Clear();
             for (int i = 0, k = 0; i < _chartManager.ChartDataList.Count; i++, k++)
             {
@@ -52,7 +58,7 @@ namespace OpenGL
                 {
                     new MyColor {color = Color.Black, Name = "Black" },
                     new MyColor {color = Color.Blue, Name = "Blue" },
-                    new MyColor {color = Color.Red, Name = "Red" },
+                    new MyColor {color = Color.Yellow, Name = "Yellow" },
                     new MyColor {color = Color.Green, Name = "Green" }
                 };
 
@@ -161,6 +167,22 @@ namespace OpenGL
                 {
                     var x = margin + (point.X - minX) / (maxX - minX) * (width - margin);
                     var y = height - margin - (point.Y - minY) / (maxY - minY) * (height - margin);
+                    GL.Vertex2(x, y);
+                }
+                GL.End();
+                GL.PointSize(5);
+                GL.Begin(PrimitiveType.Points);
+                foreach (var point in points)
+                {
+                    var x = margin + (point.X - minX) / (maxX - minX) * (width - margin);
+                    var y = height - margin - (point.Y - minY) / (maxY - minY) * (height - margin);
+                    GL.Vertex2(x, y);
+                }
+                if (selectedPoint != null)
+                {
+                    GL.Color3(selectedColor);
+                    var x = margin + (selectedPoint.X - minX) / (maxX - minX) * (width - margin);
+                    var y = height - margin - (selectedPoint.Y - minY) / (maxY - minY) * (height - margin);
                     GL.Vertex2(x, y);
                 }
                 GL.End();
@@ -353,7 +375,72 @@ namespace OpenGL
 
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
         {
+            if (_chartManager == null)
+            {
+                return;
+            }
+            if (_chartManager.ChartDataList.Count != 0)
+            {
+                double x, y;
+                getWindowCoordinates(out x, out y, e);
+                InfoTextBox.Text = "(" + Math.Round(x, 2) + ", " + Math.Round(y, 2) + ")";
+                Invalidate();
+            }
+        }
 
+        private void getWindowCoordinates(out double x, out double y, MouseEventArgs e)
+        {
+            var width = pictureBox1.Width;
+            var height = pictureBox1.Height;
+            var margin = ChartMargin;
+            var minX = Math.Floor(_chartManager.MinX);
+            var maxX = Math.Ceiling(_chartManager.MaxX);
+            var minY = Math.Floor(_chartManager.MinY);
+            var maxY = Math.Ceiling(_chartManager.MaxY);
+            x = (e.X - margin) / (width - margin) * (maxX - minX) + minX;
+            y = (height - margin - e.Y) / (height - margin) * (maxY - minY) + minY;
+        }
+
+        private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
+        {
+            double x, y;
+            getWindowCoordinates(out x, out y, e);
+            selectedPoint = getNearClickPoint(x, y);
+            pictureBox1.Invalidate();
+        }
+
+        private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
+        {
+            double x, y;
+            getWindowCoordinates(out x, out y, e);
+        }
+
+        private ChartPoint getNearClickPoint(double x, double y)
+        {
+            foreach(ChartData chartData in _chartManager.ChartDataList)
+            {
+                foreach(ChartPoint chartPoint in chartData.Points)
+                {
+                    var minY = Math.Floor(_chartManager.MinY);
+                    var maxY = Math.Ceiling(_chartManager.MaxY);
+                    var lengthY = maxY - minY;
+                    var stepY = (lengthY / 10) / 10;
+
+                    var minX = Math.Floor(_chartManager.MinX);
+                    var maxX = Math.Ceiling(_chartManager.MaxX);
+                    var lengthX = maxX - minX;
+                    var stepX = (lengthX / 10) / 10;
+
+                    if (chartPoint.X < x + stepX &&
+                        chartPoint.X > x - stepX &&
+                        chartPoint.Y < y + stepY &&
+                        chartPoint.Y > y - stepY) 
+                    {
+                        return chartPoint;
+                    }
+                }
+            }
+            return null;
         }
     }
 }

@@ -9,3 +9,14 @@ c:\Users\tanya\documents\visual studio 2015\Projects\Paint\WindowsForms\obj\Debu
 c:\Users\tanya\documents\visual studio 2015\Projects\Paint\WindowsForms\bin\Debug\Paint.dll
 c:\Users\tanya\documents\visual studio 2015\Projects\Paint\WindowsForms\bin\Debug\Paint.pdb
 c:\Users\tanya\documents\visual studio 2015\Projects\Paint\WindowsForms\obj\Debug\WindowsForms.Form1.resources
+C:\Users\atonk\Source\Repos\paint\WindowsForms\bin\Debug\WindowsForms.exe.config
+C:\Users\atonk\Source\Repos\paint\WindowsForms\bin\Debug\WindowsForms.exe
+C:\Users\atonk\Source\Repos\paint\WindowsForms\bin\Debug\WindowsForms.pdb
+C:\Users\atonk\Source\Repos\paint\WindowsForms\bin\Debug\Paint.dll
+C:\Users\atonk\Source\Repos\paint\WindowsForms\bin\Debug\Paint.pdb
+C:\Users\atonk\Source\Repos\paint\WindowsForms\obj\Debug\WindowsForms.csprojResolveAssemblyReference.cache
+C:\Users\atonk\Source\Repos\paint\WindowsForms\obj\Debug\WindowsForms.Form1.resources
+C:\Users\atonk\Source\Repos\paint\WindowsForms\obj\Debug\WindowsForms.Properties.Resources.resources
+C:\Users\atonk\Source\Repos\paint\WindowsForms\obj\Debug\WindowsForms.csproj.GenerateResource.Cache
+C:\Users\atonk\Source\Repos\paint\WindowsForms\obj\Debug\WindowsForms.exe
+C:\Users\atonk\Source\Repos\paint\WindowsForms\obj\Debug\WindowsForms.pdb

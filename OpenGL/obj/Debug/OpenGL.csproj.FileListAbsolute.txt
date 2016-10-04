@@ -12,3 +12,17 @@ c:\Users\tanya\documents\visual studio 2015\Projects\Paint\OpenGL\obj\Debug\Open
 c:\Users\tanya\documents\visual studio 2015\Projects\Paint\OpenGL\obj\Debug\OpenGL.exe
 c:\Users\tanya\documents\visual studio 2015\Projects\Paint\OpenGL\obj\Debug\OpenGL.pdb
 C:\Users\tanya\Documents\Visual Studio 2015\Projects\Paint\OpenGL\obj\Debug\OpenGL.Form1.resources
+C:\Users\atonk\Source\Repos\paint\OpenGL\bin\Debug\OpenGL.exe.config
+C:\Users\atonk\Source\Repos\paint\OpenGL\obj\Debug\OpenGL.Form1.resources
+C:\Users\atonk\Source\Repos\paint\OpenGL\obj\Debug\OpenGL.Properties.Resources.resources
+C:\Users\atonk\Source\Repos\paint\OpenGL\obj\Debug\OpenGL.csproj.GenerateResource.Cache
+C:\Users\atonk\Source\Repos\paint\OpenGL\bin\Debug\OpenGL.exe
+C:\Users\atonk\Source\Repos\paint\OpenGL\bin\Debug\OpenGL.pdb
+C:\Users\atonk\Source\Repos\paint\OpenGL\bin\Debug\OpenTK.Compatibility.dll
+C:\Users\atonk\Source\Repos\paint\OpenGL\bin\Debug\OpenTK.dll
+C:\Users\atonk\Source\Repos\paint\OpenGL\bin\Debug\OpenTK.GLControl.dll
+C:\Users\atonk\Source\Repos\paint\OpenGL\bin\Debug\Paint.dll
+C:\Users\atonk\Source\Repos\paint\OpenGL\bin\Debug\Paint.pdb
+C:\Users\atonk\Source\Repos\paint\OpenGL\obj\Debug\OpenGL.csprojResolveAssemblyReference.cache
+C:\Users\atonk\Source\Repos\paint\OpenGL\obj\Debug\OpenGL.exe
+C:\Users\atonk\Source\Repos\paint\OpenGL\obj\Debug\OpenGL.pdb
