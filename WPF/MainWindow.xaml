@@ -10,12 +10,14 @@
         <Menu x:Name="menu" Height="50" VerticalAlignment="Top" Margin="-10,-2,10.4,0">
 
             <MenuItem Header="Add line" Click="addLineToolStripMenuItem_Click"/>
+            <MenuItem Header="Sum" Click="sumToolStripMenuItem_Click"/>
+            <MenuItem Header="Razn" Click="raznToolStripMenuItem_Click"/>
             <Label x:Name="InfoTextBox" Content="Label" HorizontalAlignment="Left" Margin="580,6,0,0" VerticalAlignment="Top"/>
         </Menu>
         <ScrollViewer Margin="558,48,0.4,0.2" >
             <Canvas x:Name="panel1" HorizontalAlignment="Left" Height="505" VerticalAlignment="Top" Width="535"/>
         </ScrollViewer>
-        <Canvas x:Name="pictureBox1" HorizontalAlignment="Left" Height="472" Margin="0,48,0,0" VerticalAlignment="Top" Width="553" MouseDown="pictureBox1_MouseDown" MouseUp="pictureBox1_MouseUp" MouseMove="pictureBox1_MouseMove" PreviewMouseDown="pictureBox1_PreviewMouseDown" PreviewMouseLeftButtonDown="pictureBox1_PreviewMouseLeftButtonDown" MouseLeftButtonDown="pictureBox1_MouseLeftButtonDown" PreviewMouseLeftButtonUp="pictureBox1_PreviewMouseLeftButtonUp" PreviewTouchDown="pictureBox1_PreviewTouchDown"/>
+        <Canvas x:Name="pictureBox1" HorizontalAlignment="Left" Height="472" Margin="0,48,0,0" VerticalAlignment="Top" Width="553" MouseMove="pictureBox1_MouseMove" PreviewMouseDown="pictureBox1_PreviewMouseDown" PreviewMouseLeftButtonDown="pictureBox1_PreviewMouseDown" PreviewMouseWheel="pictureBox1_PreviewMouseDown" PreviewMouseUp="pictureBox1_PreviewMouseUp" MouseDown="pictureBox1_MouseDown_1"/>
 
 
     </Grid>

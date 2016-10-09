@@ -6,3 +6,4 @@ C:\Users\atonk\Source\Repos\paint\Paint\bin\Debug\Paint.dll
 C:\Users\atonk\Source\Repos\paint\Paint\bin\Debug\Paint.pdb
 C:\Users\atonk\Source\Repos\paint\Paint\obj\Debug\Paint.dll
 C:\Users\atonk\Source\Repos\paint\Paint\obj\Debug\Paint.pdb
+C:\Users\tanya\Documents\Visual Studio 2015\Projects\Paint\Paint\obj\Debug\Paint.csprojResolveAssemblyReference.cache

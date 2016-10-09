@@ -67,7 +67,7 @@ namespace WPF
                 };
 
                 ChartData chartData = _chartManager.ChartDataList[i];
-                
+
                 Button buttonShowPoints = new Button();
                 buttonShowPoints.Width = 160;
                 buttonShowPoints.Height = 20;
@@ -171,7 +171,7 @@ namespace WPF
             _chartManager.ChartDataList[Convert.ToInt32(mynumber)].ChartColor = color.color;
             Invalidate();
         }
-        
+
         #region Drawing
 
         private void Invalidate()
@@ -322,6 +322,20 @@ namespace WPF
                 Invalidate();
             }
         }
+
+        private void sumToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _chartManager.CreateSumChart();
+            Invalidate();
+            SetupPanel();
+        }
+
+        private void raznToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _chartManager.CreateRaznChart();
+            Invalidate();
+            SetupPanel();
+        }
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
         {
             if (_chartManager == null)
@@ -393,37 +407,29 @@ namespace WPF
             }
             return null;
         }
-
-        private void pictureBox1_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        
+        private void pictureBox1_PreviewMouseDown(object sender, MouseEventArgs e)
         {
-            int x;
-            x = 5;
-        }
 
-        private void pictureBox1_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            int x;
-            x = 5;
-        }
-
-        private void pictureBox1_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            int x;
-            x = 5;   
-        }
-
-        private void pictureBox1_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
 
             int x;
             x = 5;
         }
 
-        private void pictureBox1_PreviewTouchDown(object sender, TouchEventArgs e)
+        private void pictureBox1_PreviewMouseUp(object sender, MouseEventArgs e)
         {
 
             int x;
             x = 5;
+
+        }
+
+        private void pictureBox1_MouseDown_1(object sender, MouseEventArgs e)
+        {
+
+            int x;
+            x = 5;
+
         }
     }
 }

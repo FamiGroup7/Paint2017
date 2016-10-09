@@ -442,5 +442,19 @@ namespace OpenGL
             }
             return null;
         }
+
+        private void sumToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _chartManager.CreateSumChart();
+            pictureBox1.Invalidate();
+            SetupPanel();
+        }
+
+        private void raznToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _chartManager.CreateRaznChart();
+            pictureBox1.Invalidate();
+            SetupPanel();
+        }
     }
 }

@@ -31,7 +31,7 @@ namespace WindowsForms
             FileManager.InputFromFile("Resources/input.txt", out chartData);
             _chartManager.ChartDataList.AddRange(chartData);
             CenterToScreen();
-            SetupPanel();            
+            SetupPanel();      
         }
 
         private void initWindow()
@@ -354,6 +354,20 @@ namespace WindowsForms
                 }
             }
             return null;
+        }
+
+        private void sumToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _chartManager.CreateSumChart();
+            pictureBox1.Invalidate();
+            SetupPanel();
+        }
+
+        private void raznToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _chartManager.CreateRaznChart();
+            pictureBox1.Invalidate();
+            SetupPanel();
         }
     }
 }

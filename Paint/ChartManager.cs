@@ -52,6 +52,23 @@ namespace Paint
             ChartDataList.Add(new ChartData(points));
         }
 
+        public void CreateRaznChart()
+        {
+            var points = new List<ChartPoint>();
+            foreach (var chartData in ChartDataList)
+            {
+                foreach (var chartPoint in chartData.Points)
+                {
+                    var point = points.FirstOrDefault(p => Math.Abs(p.X - chartPoint.X) < double.Epsilon);
+                    if (point == null)
+                        points.Add(new ChartPoint(chartPoint.X, chartPoint.Y));
+                    else
+                        point.Y -= chartPoint.Y;
+                }
+            }
+            ChartDataList.Add(new ChartData(points));
+        }
+
         public void CreateRandomChart()
         {
             var random = new Random();
