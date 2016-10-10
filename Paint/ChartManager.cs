@@ -37,36 +37,129 @@ namespace Paint
 
         public void CreateSumChart()
         {
-            var points = new List<ChartPoint>();
+            SortedSet<double> tmp = new SortedSet<double>();
             foreach (var chartData in ChartDataList)
             {
                 foreach (var chartPoint in chartData.Points)
                 {
-                    var point = points.FirstOrDefault(p => Math.Abs(p.X - chartPoint.X) < double.Epsilon);
-                    if (point == null)
-                        points.Add(new ChartPoint(chartPoint.X, chartPoint.Y));
-                    else
-                        point.Y += chartPoint.Y;
+                    tmp.Add(chartPoint.X);
                 }
+            }
+            var points = new List<ChartPoint>();
+            foreach (double x in tmp)
+            {
+                double y = 0;
+                foreach (var chartData in ChartDataList)
+                {
+                    for (int i = 0; i<chartData.Points.Count-1;i++)
+                    {
+                        ChartPoint p1 = (i == chartData.Points.Count-1) ? chartData.Points[i-1] : chartData.Points[i];
+                        ChartPoint p2 = (i == chartData.Points.Count - 1) ? chartData.Points[i] : chartData.Points[i+1];
+                        ChartPoint point;
+                        if (p1.X <= x && p2.X > x)
+                        {
+                            double k = (p1.Y - p2.Y) / (p1.X - p2.X);
+                            double b = p1.Y - k * p1.X;
+                            double yy = k * x + b;
+                            point = new ChartPoint(x, yy);
+
+                            if (point != null)
+                            {
+                                y += point.Y;
+                            }
+                        }
+                    }
+                    int j = chartData.Points.Count - 1;
+                    ChartPoint pp1 = (j == chartData.Points.Count - 1) ? chartData.Points[j - 1] : chartData.Points[j];
+                    ChartPoint pp2 = (j == chartData.Points.Count - 1) ? chartData.Points[j] : chartData.Points[j + 1];
+                    ChartPoint ppoint;
+                    if (pp1.X < x && pp2.X >= x)
+                    {
+                        double k = (pp1.Y - pp2.Y) / (pp1.X - pp2.X);
+                        double b = pp1.Y - k * pp1.X;
+                        double yy = k * x + b;
+                        ppoint = new ChartPoint(x, yy);
+
+                        if (ppoint != null)
+                        {
+                            y += ppoint.Y;
+                        }
+                    }
+
+                }
+                points.Add(new ChartPoint(x,y));
             }
             ChartDataList.Add(new ChartData(points));
         }
 
         public void CreateRaznChart()
         {
-            var points = new List<ChartPoint>();
+            SortedSet<double> tmp = new SortedSet<double>();
             foreach (var chartData in ChartDataList)
             {
                 foreach (var chartPoint in chartData.Points)
                 {
-                    var point = points.FirstOrDefault(p => Math.Abs(p.X - chartPoint.X) < double.Epsilon);
-                    if (point == null)
-                        points.Add(new ChartPoint(chartPoint.X, chartPoint.Y));
-                    else
-                        point.Y -= chartPoint.Y;
+                    tmp.Add(chartPoint.X);
                 }
             }
+            var points = new List<ChartPoint>();
+            foreach (double x in tmp)
+            {
+                double y = 0;
+                foreach (var chartData in ChartDataList)
+                {
+                    for (int i = 0; i < chartData.Points.Count - 1; i++)
+                    {
+                        ChartPoint p1 = (i == chartData.Points.Count - 1) ? chartData.Points[i - 1] : chartData.Points[i];
+                        ChartPoint p2 = (i == chartData.Points.Count - 1) ? chartData.Points[i] : chartData.Points[i + 1];
+                        ChartPoint point;
+                        if (p1.X <= x && p2.X > x)
+                        {
+                            double k = (p1.Y - p2.Y) / (p1.X - p2.X);
+                            double b = p1.Y - k * p1.X;
+                            double yy = k * x + b;
+                            point = new ChartPoint(x, yy);
+
+                            if (point != null)
+                            {
+                                y -= point.Y;
+                            }
+                        }
+                    }
+                    int j = chartData.Points.Count - 1;
+                    ChartPoint pp1 = (j == chartData.Points.Count - 1) ? chartData.Points[j - 1] : chartData.Points[j];
+                    ChartPoint pp2 = (j == chartData.Points.Count - 1) ? chartData.Points[j] : chartData.Points[j + 1];
+                    ChartPoint ppoint;
+                    if (pp1.X < x && pp2.X >= x)
+                    {
+                        double k = (pp1.Y - pp2.Y) / (pp1.X - pp2.X);
+                        double b = pp1.Y - k * pp1.X;
+                        double yy = k * x + b;
+                        ppoint = new ChartPoint(x, yy);
+
+                        if (ppoint != null)
+                        {
+                            y -= ppoint.Y;
+                        }
+                    }
+
+                }
+                points.Add(new ChartPoint(x, y));
+            }
             ChartDataList.Add(new ChartData(points));
+        }
+
+        private ChartPoint getPointinLine(ChartPoint p1, ChartPoint p2, double x)
+        {
+            if(p1.X <= x && p2.X >= x)
+            {
+                double k = (p1.Y - p2.Y) / (p1.X - p2.X);
+                double b = p1.Y - k * p1.X;
+                double y = k*x+b;
+                return new ChartPoint(x, y);
+                
+            }
+            return null;
         }
 
         public void CreateRandomChart()
