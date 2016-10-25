@@ -208,8 +208,17 @@ namespace WPF
                     var b = chartData.ChartColor.B;
                     var color = new SolidColorBrush(System.Windows.Media.Color.FromRgb(r, g, b));
                     DrawLine(x1, y1, x2, y2, color);
-                    //DrawPoint(x1, y1, new SolidColorBrush(System.Windows.Media.Color.FromArgb(selectedColor.A, selectedColor.R, selectedColor.G, selectedColor.B)));
+
                     DrawPoint(x1, y1, color);
+
+                    if (selectedPoint != null)
+                    {
+                        var x = margin + (selectedPoint.X - minX) / (maxX - minX) * (width - margin);
+                        var y = height - margin - (selectedPoint.Y - minY) / (maxY - minY) * (height - margin);
+                        DrawPoint(x, y, new SolidColorBrush(System.Windows.Media.Color.FromArgb(selectedColor.A, selectedColor.R, selectedColor.G, selectedColor.B)));
+
+                    }
+
                 }
             }
         }
@@ -347,23 +356,21 @@ namespace WPF
                 double x, y;
                 getWindowCoordinates(out x, out y, e);
                 InfoTextBox.Content = "(" + Math.Round(x, 2) + ", " + Math.Round(y, 2) + ")";
-                Invalidate();
+                //Invalidate();
             }
         }
 
         private void getWindowCoordinates(out double x, out double y, MouseEventArgs e)
         {
-            var relativePosition = e.GetPosition(this);
-            var point = PointToScreen(relativePosition);
-            var width = pictureBox1.Width;
-            var height = pictureBox1.Height;
+            var width = pictureBox1.ActualWidth;
+            var height = pictureBox1.ActualHeight;
             var margin = ChartMargin;
             var minX = Math.Floor(_chartManager.MinX);
             var maxX = Math.Ceiling(_chartManager.MaxX);
             var minY = Math.Floor(_chartManager.MinY);
             var maxY = Math.Ceiling(_chartManager.MaxY);
-            x = (point.X - margin) / (width - margin) * (maxX - minX) + minX;
-            y = (height - margin - point.Y) / (height - margin) * (maxY - minY) + minY;
+            x = (e.GetPosition(pictureBox1).X - margin) / (width - margin) * (maxX - minX) + minX;
+            y = (height - margin - e.GetPosition(pictureBox1).Y) / (height - margin) * (maxY - minY) + minY;
         }
 
         private void pictureBox1_MouseDown(object sender, MouseButtonEventArgs e)
@@ -406,30 +413,6 @@ namespace WPF
                 }
             }
             return null;
-        }
-        
-        private void pictureBox1_PreviewMouseDown(object sender, MouseEventArgs e)
-        {
-
-
-            int x;
-            x = 5;
-        }
-
-        private void pictureBox1_PreviewMouseUp(object sender, MouseEventArgs e)
-        {
-
-            int x;
-            x = 5;
-
-        }
-
-        private void pictureBox1_MouseDown_1(object sender, MouseEventArgs e)
-        {
-
-            int x;
-            x = 5;
-
         }
     }
 }

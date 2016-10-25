@@ -1,0 +1,4 @@
+C:\Users\atonk\Source\Repos\paint\Paint\bin\Release\Paint.dll
+C:\Users\atonk\Source\Repos\paint\Paint\bin\Release\Paint.pdb
+C:\Users\atonk\Source\Repos\paint\Paint\obj\Release\Paint.dll
+C:\Users\atonk\Source\Repos\paint\Paint\obj\Release\Paint.pdb

@@ -14,10 +14,11 @@
             <MenuItem Header="Razn" Click="raznToolStripMenuItem_Click"/>
             <Label x:Name="InfoTextBox" Content="Label" HorizontalAlignment="Left" Margin="580,6,0,0" VerticalAlignment="Top"/>
         </Menu>
-        <ScrollViewer Margin="558,48,0.4,0.2" >
-            <Canvas x:Name="panel1" HorizontalAlignment="Left" Height="505" VerticalAlignment="Top" Width="535"/>
+        <ScrollViewer Height="472" Width="400" Margin="558,53,10.4,11.2" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" CanContentScroll="True">
+            <Canvas x:Name="panel1" HorizontalAlignment="Right" 
+                Width="400"/>
         </ScrollViewer>
-        <Canvas x:Name="pictureBox1" HorizontalAlignment="Left" Height="472" Margin="0,48,0,0" VerticalAlignment="Top" Width="553" MouseMove="pictureBox1_MouseMove" PreviewMouseDown="pictureBox1_PreviewMouseDown" PreviewMouseLeftButtonDown="pictureBox1_PreviewMouseDown" PreviewMouseWheel="pictureBox1_PreviewMouseDown" PreviewMouseUp="pictureBox1_PreviewMouseUp" MouseDown="pictureBox1_MouseDown_1"/>
+        <Canvas x:Name="pictureBox1" HorizontalAlignment="Left" Height="472" Margin="0,48,0,0" VerticalAlignment="Top" Width="553" MouseMove="pictureBox1_MouseMove" MouseDown="pictureBox1_MouseDown" Background="White" MouseUp="pictureBox1_MouseUp"/>
 
 
     </Grid>

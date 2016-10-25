@@ -1,0 +1,16 @@
+C:\Users\atonk\Source\Repos\paint\WPF\bin\Release\WPF.exe.config
+C:\Users\atonk\Source\Repos\paint\WPF\bin\Release\WPF.exe
+C:\Users\atonk\Source\Repos\paint\WPF\bin\Release\WPF.pdb
+C:\Users\atonk\Source\Repos\paint\WPF\bin\Release\Paint.dll
+C:\Users\atonk\Source\Repos\paint\WPF\bin\Release\Paint.pdb
+C:\Users\atonk\Source\Repos\paint\WPF\obj\Release\WPF.csprojResolveAssemblyReference.cache
+C:\Users\atonk\Source\Repos\paint\WPF\obj\Release\MainWindow.g.cs
+C:\Users\atonk\Source\Repos\paint\WPF\obj\Release\App.g.cs
+C:\Users\atonk\Source\Repos\paint\WPF\obj\Release\WPF_MarkupCompile.cache
+C:\Users\atonk\Source\Repos\paint\WPF\obj\Release\WPF_MarkupCompile.lref
+C:\Users\atonk\Source\Repos\paint\WPF\obj\Release\MainWindow.baml
+C:\Users\atonk\Source\Repos\paint\WPF\obj\Release\WPF.g.resources
+C:\Users\atonk\Source\Repos\paint\WPF\obj\Release\WPF.Properties.Resources.resources
+C:\Users\atonk\Source\Repos\paint\WPF\obj\Release\WPF.csproj.GenerateResource.Cache
+C:\Users\atonk\Source\Repos\paint\WPF\obj\Release\WPF.exe
+C:\Users\atonk\Source\Repos\paint\WPF\obj\Release\WPF.pdb
