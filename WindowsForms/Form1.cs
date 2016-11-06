@@ -16,6 +16,8 @@ namespace WindowsForms
         public const double ChartMargin = 15;
         Color selectedColor = Color.Red;
         ChartPoint selectedPoint;
+        double zoomX = 0.0, zoomY = 0.0;
+        double stepZoomX = 0.0, stepZoomY = 0.0;
 
         public Form1()
         {
@@ -146,10 +148,10 @@ namespace WindowsForms
                 var width = pictureBox1.Width;
                 var height = pictureBox1.Height;
                 var margin = ChartMargin;
-                var minX = Math.Floor(_chartManager.MinX);
-                var maxX = Math.Ceiling(_chartManager.MaxX);
-                var minY = Math.Floor(_chartManager.MinY);
-                var maxY = Math.Ceiling(_chartManager.MaxY);
+                var minX = Math.Floor(_chartManager.MinX) + zoomX;
+                var maxX = Math.Ceiling(_chartManager.MaxX) - zoomX;
+                var minY = Math.Floor(_chartManager.MinY) + zoomY;
+                var maxY = Math.Ceiling(_chartManager.MaxY) - zoomY;
                 for (var i = 0; i < points.Count - 1; i++)
                 {
                     var x1 = margin + (points[i].X - minX) / (maxX - minX) * (width - margin);
@@ -176,12 +178,13 @@ namespace WindowsForms
             var width = pictureBox1.Width;
             var height = pictureBox1.Height;
             var margin = ChartMargin;
-            var minX = Math.Floor(_chartManager.MinX);
-            var maxX = Math.Ceiling(_chartManager.MaxX);
+            var minX = Math.Floor(_chartManager.MinX) + zoomX;
+            var maxX = Math.Ceiling(_chartManager.MaxX) - zoomX;
             var length = maxX - minX;
             var stepX = (length / 10);
             var count = length / stepX;
             var stepW = (width - margin) / count;
+            stepZoomX = stepX;
             graphics.DrawLine(pen, (float)margin, (float)(height - margin), width, (float)(height - margin));
             var x = margin;
             var y = height - margin;
@@ -202,12 +205,13 @@ namespace WindowsForms
             var pen = new Pen(Color.Black);
             var height = pictureBox1.Height;
             var margin = ChartMargin;
-            var minY = Math.Floor(_chartManager.MinY);
-            var maxY = Math.Ceiling(_chartManager.MaxY);
+            var minY = Math.Floor(_chartManager.MinY) + zoomY;
+            var maxY = Math.Ceiling(_chartManager.MaxY) - zoomY;
             var length = maxY - minY;
             var stepY = (length / 10);
             var count = length / stepY;
             var stepH = (height - margin) / count;
+            stepZoomY = stepY;
             graphics.DrawLine(pen, (float)margin, 0, (float)margin, (float)(height - margin));
             var x = margin;
             var y = height - margin;
@@ -368,6 +372,23 @@ namespace WindowsForms
             _chartManager.CreateRaznChart();
             pictureBox1.Invalidate();
             SetupPanel();
+        }
+
+        private void pictureBox1_MouseWheel(object sender, MouseEventArgs e)
+        {
+
+            if (e.Delta > 0)
+            {
+                zoomX += stepZoomX;
+                zoomY += stepZoomY;
+            }
+            else
+            {
+                zoomX -= stepZoomX;
+                zoomY -= stepZoomY;
+            }
+            pictureBox1.Invalidate();
+
         }
     }
 }
