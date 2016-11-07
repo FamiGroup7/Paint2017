@@ -81,19 +81,9 @@ namespace WPF
 
                 ComboBox comboBox = new ComboBox();
                 comboBox.Name = "ButtonColor" + i + "";
-                //comboBox.ItemsSource = colors;
                 comboBox.Width = 75;
                 comboBox.Height = 20;
-                //comboBox.DisplayMemberPath = "Name";
                 comboBox.SelectionChanged += new SelectionChangedEventHandler(comboBox_SelectedIndexChanged);
-                //ComboBoxItem cboxitem = new ComboBoxItem();
-                //cboxitem.Content = "C# Corner";
-                //cboxitem.Background = new SolidColorBrush(Colors.Red);
-                //ComboBoxItem cboxitem2 = new ComboBoxItem();
-                //cboxitem2.Content = "C# Corner";
-                //cboxitem2.Background = new SolidColorBrush(Colors.Blue);
-                //comboBox.Items.Add(cboxitem);
-                //comboBox.Items.Add(cboxitem2);
                 foreach (var item in colors)
                 {
                     ComboBoxItem cboxitem = new ComboBoxItem();
@@ -101,16 +91,6 @@ namespace WPF
                     cboxitem.Background = new SolidColorBrush(System.Windows.Media.Color.FromArgb(item.color.A, item.color.R, item.color.G, item.color.B));
                     comboBox.Items.Add(cboxitem);
                 }
-                //for (int l =0; i < comboBox.Items.Count; i++)
-                //{
-                //    ComboBoxItem cboxitem = (ComboBoxItem)(comboBox.ItemContainerGenerator.ContainerFromIndex(l));
-                //    var mycolor = comboBox.Items[l];
-                //    cboxitem.Background = new SolidColorBrush(System.Windows.Media.Color.FromArgb(chartData.ChartColor.A, chartData.ChartColor.R, chartData.ChartColor.G, chartData.ChartColor.B));
-                //}
-                //foreach(ComboBoxItem cboxitem in comboBox.Items)
-                //{
-                //    cboxitem.Background = new SolidColorBrush(Colors.Red);
-                //}
                 panel1.Children.Add(comboBox);
                 Canvas.SetLeft(comboBox, 20);
                 Canvas.SetTop(comboBox, 20 + (k * 40));
@@ -190,7 +170,7 @@ namespace WPF
         private void comboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             ComboBox combox = (ComboBox)sender;
-            var color = colors[combox.SelectedIndex];//combox.SelectedItem;
+            var color = colors[combox.SelectedIndex];
             Button button = UIHelper.FindChild<Button>(panel1, combox.Name);
             button.Background = new SolidColorBrush(System.Windows.Media.Color.FromArgb(color.color.A, color.color.R, color.color.G, color.color.B));
             string mynumber = Regex.Replace(button.Name, @"\D", "");
@@ -382,7 +362,6 @@ namespace WPF
                 double x, y;
                 getWindowCoordinates(out x, out y, e);
                 InfoTextBox.Content = "(" + Math.Round(x, 2) + ", " + Math.Round(y, 2) + ")";
-                //Invalidate();
             }
         }
 
