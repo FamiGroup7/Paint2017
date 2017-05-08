@@ -8,3 +8,13 @@ C:\Users\atonk\Source\Repos\paint\Paint\obj\Debug\Paint.dll
 C:\Users\atonk\Source\Repos\paint\Paint\obj\Debug\Paint.pdb
 C:\Users\tanya\Documents\Visual Studio 2015\Projects\Paint\Paint\obj\Debug\Paint.csprojResolveAssemblyReference.cache
 C:\Users\atonk\Source\Repos\paint\Paint\obj\Debug\Paint.csprojResolveAssemblyReference.cache
+H:\MyDocuments\Visual Studio 2015\Projects\Paint\Paint\bin\Debug\Paint.dll
+H:\MyDocuments\Visual Studio 2015\Projects\Paint\Paint\bin\Debug\Paint.pdb
+H:\MyDocuments\Visual Studio 2015\Projects\Paint\Paint\obj\Debug\Paint.csprojResolveAssemblyReference.cache
+H:\MyDocuments\Visual Studio 2015\Projects\Paint\Paint\obj\Debug\Paint.dll
+H:\MyDocuments\Visual Studio 2015\Projects\Paint\Paint\obj\Debug\Paint.pdb
+D:\OneDrive\Документы\Магистратура\2 семестр\Paint\Paint\bin\Debug\Paint.dll
+D:\OneDrive\Документы\Магистратура\2 семестр\Paint\Paint\bin\Debug\Paint.pdb
+D:\OneDrive\Документы\Магистратура\2 семестр\Paint\Paint\obj\Debug\Paint.csprojResolveAssemblyReference.cache
+D:\OneDrive\Документы\Магистратура\2 семестр\Paint\Paint\obj\Debug\Paint.dll
+D:\OneDrive\Документы\Магистратура\2 семестр\Paint\Paint\obj\Debug\Paint.pdb

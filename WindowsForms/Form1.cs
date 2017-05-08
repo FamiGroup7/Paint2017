@@ -29,10 +29,6 @@ namespace WindowsForms
         {
             initWindow();
             _chartManager = new ChartManager();
-            List<ChartData> chartData;
-            FileManager.InputFromFile("Resources/input.txt", out chartData);
-            _chartManager.ChartDataList.AddRange(chartData);
-            CenterToScreen();
             SetupPanel();      
         }
 
@@ -47,6 +43,7 @@ namespace WindowsForms
 
         private void SetupPanel()
         {
+            return;
             if (_chartManager == null)
             {
                 return;
@@ -133,8 +130,6 @@ namespace WindowsForms
             if (_chartManager.ChartDataList.Count != 0)
             {
                 DrawChart(e.Graphics);
-                DrawAxisX(e.Graphics);
-                DrawAxisY(e.Graphics);
             }
         }
 
@@ -145,86 +140,13 @@ namespace WindowsForms
                 var pen = new Pen(chartData.ChartColor);
                 var brush = new SolidBrush(chartData.ChartColor);
                 var points = chartData.Points;
-                var width = pictureBox1.Width;
-                var height = pictureBox1.Height;
-                var margin = ChartMargin;
-                var minX = Math.Floor(_chartManager.MinX) + zoomX;
-                var maxX = Math.Ceiling(_chartManager.MaxX) - zoomX;
-                var minY = Math.Floor(_chartManager.MinY) + zoomY;
-                var maxY = Math.Ceiling(_chartManager.MaxY) - zoomY;
-                for (var i = 0; i < points.Count - 1; i++)
+
+                if (points.Count == 1)
                 {
-                    var x1 = margin + (points[i].X - minX) / (maxX - minX) * (width - margin);
-                    var y1 = height - margin - (points[i].Y - minY) / (maxY - minY) * (height - margin);
-                    var x2 = margin + (points[i + 1].X - minX) / (maxX - minX) * (width - margin);
-                    var y2 = height - margin - (points[i + 1].Y - minY) / (maxY - minY) * (height - margin);
-                    graphics.DrawLine(pen, (float)x1, (float)y1, (float)x2, (float)y2);
+                    var x1 = points[0].X;
+                    var y1 = points[0].Y;
                     graphics.FillRectangle(brush, (float)x1 - 2.5f, (float)y1 - 2.5f, 5, 5);
                 }
-
-                if (selectedPoint != null)
-                {
-                    var brushSelected = new SolidBrush(selectedColor);
-                    var x = margin + (selectedPoint.X - minX) / (maxX - minX) * (width - margin);
-                    var y = height - margin - (selectedPoint.Y - minY) / (maxY - minY) * (height - margin);
-                    graphics.FillRectangle(brushSelected, (float)x-2.5f, (float)y-2.5f, 5, 5);
-                }
-            }
-        }
-
-        private void DrawAxisX(Graphics graphics)
-        {
-            var pen = new Pen(Color.Black, 1);
-            var width = pictureBox1.Width;
-            var height = pictureBox1.Height;
-            var margin = ChartMargin;
-            var minX = Math.Floor(_chartManager.MinX) + zoomX;
-            var maxX = Math.Ceiling(_chartManager.MaxX) - zoomX;
-            var length = maxX - minX;
-            var stepX = (length / 10);
-            var count = length / stepX;
-            var stepW = (width - margin) / count;
-            stepZoomX = stepX;
-            graphics.DrawLine(pen, (float)margin, (float)(height - margin), width, (float)(height - margin));
-            var x = margin;
-            var y = height - margin;
-            for (var i = 0; x < width; i++)
-            {
-                graphics.DrawLine(pen, (float)x, (float)y, (float)x, (float)(y - 5));
-                var text = Math.Round(minX + stepX * i, 2).ToString(CultureInfo.InvariantCulture);
-                var font = new Font("Arial", 8);
-                var brush = new SolidBrush(Color.Black);
-                var point = new PointF((float)x, (float)y);
-                graphics.DrawString(text, font, brush, point);
-                x += stepW;
-            }
-        }
-
-        private void DrawAxisY(Graphics graphics)
-        {
-            var pen = new Pen(Color.Black);
-            var height = pictureBox1.Height;
-            var margin = ChartMargin;
-            var minY = Math.Floor(_chartManager.MinY) + zoomY;
-            var maxY = Math.Ceiling(_chartManager.MaxY) - zoomY;
-            var length = maxY - minY;
-            var stepY = (length / 10);
-            var count = length / stepY;
-            var stepH = (height - margin) / count;
-            stepZoomY = stepY;
-            graphics.DrawLine(pen, (float)margin, 0, (float)margin, (float)(height - margin));
-            var x = margin;
-            var y = height - margin;
-            for (var i = 0; y > 0; i++)
-            {
-                graphics.DrawLine(pen, (float)x, (float)y, (float)(x + 5), (float)y);
-                var text = Math.Round(minY + stepY * i, 2).ToString(CultureInfo.InvariantCulture);
-                var font = new Font("Arial", 8);
-                var brush = new SolidBrush(Color.Black);
-                var point = new PointF(0, (float)y);
-                var format = new StringFormat { FormatFlags = StringFormatFlags.DirectionVertical };
-                graphics.DrawString(text, font, brush, point, format);
-                y -= stepH;
             }
         }
 
@@ -322,7 +244,10 @@ namespace WindowsForms
         {
             double x, y;
             getWindowCoordinates(out x, out y, e);
-            selectedPoint = getNearClickPoint(x, y);
+            ChartPoint point = new ChartPoint(e.X, e.Y);
+            ChartData data = new ChartData(point);
+            _chartManager.ChartDataList.Add(data);
+            //selectedPoint = getNearClickPoint(x, y);
             pictureBox1.Invalidate();
         }
 

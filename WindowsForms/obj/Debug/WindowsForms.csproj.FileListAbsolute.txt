@@ -20,3 +20,14 @@ C:\Users\atonk\Source\Repos\paint\WindowsForms\obj\Debug\WindowsForms.Properties
 C:\Users\atonk\Source\Repos\paint\WindowsForms\obj\Debug\WindowsForms.csproj.GenerateResource.Cache
 C:\Users\atonk\Source\Repos\paint\WindowsForms\obj\Debug\WindowsForms.exe
 C:\Users\atonk\Source\Repos\paint\WindowsForms\obj\Debug\WindowsForms.pdb
+D:\OneDrive\Документы\Магистратура\2 семестр\Paint\WindowsForms\bin\Debug\WindowsForms.exe.config
+D:\OneDrive\Документы\Магистратура\2 семестр\Paint\WindowsForms\obj\Debug\WindowsForms.exe
+D:\OneDrive\Документы\Магистратура\2 семестр\Paint\WindowsForms\obj\Debug\WindowsForms.pdb
+D:\OneDrive\Документы\Магистратура\2 семестр\Paint\WindowsForms\bin\Debug\WindowsForms.exe
+D:\OneDrive\Документы\Магистратура\2 семестр\Paint\WindowsForms\bin\Debug\WindowsForms.pdb
+D:\OneDrive\Документы\Магистратура\2 семестр\Paint\WindowsForms\bin\Debug\Paint.dll
+D:\OneDrive\Документы\Магистратура\2 семестр\Paint\WindowsForms\bin\Debug\Paint.pdb
+D:\OneDrive\Документы\Магистратура\2 семестр\Paint\WindowsForms\obj\Debug\WindowsForms.csprojResolveAssemblyReference.cache
+D:\OneDrive\Документы\Магистратура\2 семестр\Paint\WindowsForms\obj\Debug\WindowsForms.Form1.resources
+D:\OneDrive\Документы\Магистратура\2 семестр\Paint\WindowsForms\obj\Debug\WindowsForms.Properties.Resources.resources
+D:\OneDrive\Документы\Магистратура\2 семестр\Paint\WindowsForms\obj\Debug\WindowsForms.csproj.GenerateResource.Cache

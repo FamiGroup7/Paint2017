@@ -26,3 +26,20 @@ C:\Users\atonk\Source\Repos\paint\OpenGL\bin\Debug\Paint.pdb
 C:\Users\atonk\Source\Repos\paint\OpenGL\obj\Debug\OpenGL.csprojResolveAssemblyReference.cache
 C:\Users\atonk\Source\Repos\paint\OpenGL\obj\Debug\OpenGL.exe
 C:\Users\atonk\Source\Repos\paint\OpenGL\obj\Debug\OpenGL.pdb
+H:\MyDocuments\Visual Studio 2015\Projects\Paint\OpenGL\bin\Debug\OpenGL.exe.config
+H:\MyDocuments\Visual Studio 2015\Projects\Paint\OpenGL\obj\Debug\OpenGL.exe
+H:\MyDocuments\Visual Studio 2015\Projects\Paint\OpenGL\obj\Debug\OpenGL.pdb
+H:\MyDocuments\Visual Studio 2015\Projects\Paint\OpenGL\bin\Debug\OpenGL.exe
+H:\MyDocuments\Visual Studio 2015\Projects\Paint\OpenGL\bin\Debug\OpenGL.pdb
+H:\MyDocuments\Visual Studio 2015\Projects\Paint\OpenGL\bin\Debug\OpenTK.Compatibility.dll
+H:\MyDocuments\Visual Studio 2015\Projects\Paint\OpenGL\bin\Debug\OpenTK.dll
+H:\MyDocuments\Visual Studio 2015\Projects\Paint\OpenGL\bin\Debug\OpenTK.GLControl.dll
+H:\MyDocuments\Visual Studio 2015\Projects\Paint\OpenGL\bin\Debug\Paint.dll
+H:\MyDocuments\Visual Studio 2015\Projects\Paint\OpenGL\bin\Debug\Paint.pdb
+H:\MyDocuments\Visual Studio 2015\Projects\Paint\OpenGL\obj\Debug\OpenGL.csprojResolveAssemblyReference.cache
+H:\MyDocuments\Visual Studio 2015\Projects\Paint\OpenGL\obj\Debug\OpenGL.Form1.resources
+H:\MyDocuments\Visual Studio 2015\Projects\Paint\OpenGL\obj\Debug\OpenGL.Properties.Resources.resources
+H:\MyDocuments\Visual Studio 2015\Projects\Paint\OpenGL\obj\Debug\OpenGL.csproj.GenerateResource.Cache
+D:\OneDrive\Документы\Магистратура\2 семестр\Paint\OpenGL\bin\Debug\OpenGL.exe.config
+D:\OneDrive\Документы\Магистратура\2 семестр\Paint\OpenGL\obj\Debug\OpenGL.exe
+D:\OneDrive\Документы\Магистратура\2 семестр\Paint\OpenGL\obj\Debug\OpenGL.pdb

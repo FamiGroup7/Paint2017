@@ -30,3 +30,6 @@ C:\Users\atonk\Source\Repos\paint\WPF\obj\Debug\WPF.Properties.Resources.resourc
 C:\Users\atonk\Source\Repos\paint\WPF\obj\Debug\WPF.csproj.GenerateResource.Cache
 C:\Users\atonk\Source\Repos\paint\WPF\obj\Debug\WPF.exe
 C:\Users\atonk\Source\Repos\paint\WPF\obj\Debug\WPF.pdb
+H:\MyDocuments\Visual Studio 2015\Projects\Paint\WPF\bin\Debug\WPF.exe.config
+H:\MyDocuments\Visual Studio 2015\Projects\Paint\WPF\obj\Debug\WPF.exe
+H:\MyDocuments\Visual Studio 2015\Projects\Paint\WPF\obj\Debug\WPF.pdb

@@ -12,6 +12,14 @@ namespace Paint
             Initialize();
         }
 
+        public ChartData(ChartPoint point)
+        {
+            Initialize();
+            List<ChartPoint> list = new List<ChartPoint>();
+            list.Add(point);
+            Points = list;
+        }
+
         public ChartData(List<ChartPoint> points)
         {
             Initialize();
